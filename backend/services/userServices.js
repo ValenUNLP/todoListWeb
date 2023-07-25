@@ -1,7 +1,7 @@
 const fs = require("fs");
-const crypto = require("crypto");
 const DB_FILE = "./db.json";
 const {addUserDB, searchUserDB, removeUserDB} = require("../dbActions");
+const {generateId, clientData} = require("../util");
 
 const REGISTERED_USER_ERROR = {
     error: true,
@@ -39,13 +39,5 @@ const removeUser = (id) =>{
 }
 
 
-const clientData = (user) =>{
-    return {
-        id: user.id,
-        username: user.username
-    }
-}
-
-const generateId = () => crypto.randomBytes(16).toString('hex');
 
 module.exports = {addUser, removeUser};
