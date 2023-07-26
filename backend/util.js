@@ -4,7 +4,7 @@ const crypto = require("crypto");
 const clientData = (user) =>{
     return {
         id: user.id,
-        username: user.username
+        name: user.name
     }
 }
 

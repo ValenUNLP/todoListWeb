@@ -1,10 +1,11 @@
 const { addUser, removeUser} = require("../services/userServices");
 
 const registerUser = (req, res) =>{
+    const name = req.body.name;
     const username = req.body.username;
     const password = req.body.password;
 
-    const user =  addUser(username, password);
+    const user =  addUser(username, password, name);
 
     if(user.error){
         res.status(400).send(user.message);

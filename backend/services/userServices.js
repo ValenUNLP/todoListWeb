@@ -13,7 +13,7 @@ const REMOVE_USER_ERROR = {
     message: "User not found"
 }
 
-const addUser = (username, password)=> {
+const addUser = (username, password, name)=> {
     if(!fs.existsSync(DB_FILE)){
         fs.writeFileSync(DB_FILE, JSON.stringify([]));
     }
@@ -22,6 +22,7 @@ const addUser = (username, password)=> {
 
     let newUser = {
         id: generateId(),
+        name,
         username,
         password,
         todos: []
