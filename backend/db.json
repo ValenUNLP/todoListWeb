@@ -24,6 +24,13 @@
     "name": "Valentin",
     "username": "ValenGG",
     "password": "Banegas1234",
-    "todos": []
+    "todos": [
+      {
+        "id": "8077f6a5c2cb0969fcb19bcabae80a47",
+        "goal": "Terminar este programa",
+        "importance": 10,
+        "cheked": false
+      }
+    ]
   }
 ]

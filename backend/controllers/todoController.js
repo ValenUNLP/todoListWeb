@@ -5,7 +5,12 @@ const postTodo = (req, res) =>{
     const userId = req.params.id;
     const todo = req.body.todo;
     const successful = addTodo(userId, todo);
-    res.status("200").send(successful);
+    if(successful.error){
+        res.status("404").send(successful.message);
+    }else{
+
+        res.status("200").send(successful);
+    }
 }
 
 module.exports = {postTodo};

@@ -13,6 +13,7 @@ const searchUserDB = (username, password) =>{
 
 }
 
+
 const removeUserDB = (id) =>{
     let db = JSON.parse(fs.readFileSync(DB_FILE));
     const userIndex = db.findIndex((user) => user.id == id);
@@ -26,8 +27,11 @@ const removeUserDB = (id) =>{
 const addTodoDB = (userId, todo) => {
     let db = JSON.parse(fs.readFileSync(DB_FILE));
     const userIndex = db.findIndex(el => el.id ==  userId);
+    if(userIndex == -1) return false;
+
     db[userIndex].todos.push(todo);
     fs.writeFileSync(DB_FILE, JSON.stringify(db, null, 2));
+    return true;
 }
 
 

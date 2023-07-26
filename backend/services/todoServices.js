@@ -1,5 +1,10 @@
-const {addTodoDB} = require("../dbActions");
+const {addTodoDB, searchUserByIdDB} = require("../dbActions");
 const {generateId} = require("../util");
+
+const USER_NOT_FOUND_ERROR = {
+    error: true,
+    message: "User not foud",
+}
 
 /*
   const todo = {
@@ -17,8 +22,9 @@ const addTodo = (userId, todo) =>{
         importance: todo.importance,
         cheked: false
     }
-    
-    addTodoDB(userId, newTodo);
+
+    const added = addTodoDB(userId, newTodo);
+    if(!added) return USER_NOT_FOUND_ERROR;
     return "Todo added";
 }
 
