@@ -1,9 +1,14 @@
-const {addTodoDB, searchUserByIdDB} = require("../dbActions");
+const {addTodoDB, changeTodoCheckDB, removeTodoDB} = require("../dbActions");
 const {generateId} = require("../util");
 
 const USER_NOT_FOUND_ERROR = {
     error: true,
     message: "User not foud",
+}
+
+const USER_OR_TODO_NOT_FOUND_ERROR = {
+    error: true,
+    message: "User or todo not found",
 }
 
 /*
@@ -25,7 +30,22 @@ const addTodo = (userId, todo) =>{
 
     const added = addTodoDB(userId, newTodo);
     if(!added) return USER_NOT_FOUND_ERROR;
-    return "Todo added";
+    return newTodo;
 }
 
-module.exports = {addTodo};
+const changeTodo = (userId, todoId) => {
+    const change = changeTodoCheckDB(userId, todoId);
+
+    if(!change) return USER_OR_TODO_NOT_FOUND_ERROR;
+
+    return "Todo check change";
+}
+
+const removeTodo = (userId, todoId) =>{
+    const removed = removeTodoDB(userId, todoId);
+    if(!removed) return USER_OR_TODO_NOT_FOUND_ERROR;
+
+    return "Todo removed";
+}
+
+module.exports = {addTodo, changeTodo, removeTodo};

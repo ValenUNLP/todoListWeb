@@ -35,4 +35,37 @@ const addTodoDB = (userId, todo) => {
 }
 
 
-module.exports = {addUserDB, searchUserDB, removeUserDB, addTodoDB};
+const changeTodoCheckDB = (userId, todoId) => {
+    let db = JSON.parse(fs.readFileSync(DB_FILE));
+    const userIndex = db.findIndex(el => el.id ==  userId);
+    if(userIndex == -1) return false;
+    const todoIndex = db[userIndex].todos.findIndex(el => el.id = todoId);
+    if(todoIndex == -1) return false;
+
+    const actualCheck = db[userIndex].todos[todoIndex].cheked;
+    let newCheck;
+
+    actualCheck ? newCheck = false : newCheck = true;
+
+    db[userIndex].todos[todoIndex].cheked = newCheck;
+
+    fs.writeFileSync(DB_FILE, JSON.stringify(db, null, 2));
+    return true;
+}
+
+const removeTodoDB =  (userId, todoId) => {
+
+    let db = JSON.parse(fs.readFileSync(DB_FILE));
+    const userIndex = db.findIndex(el => el.id ==  userId);
+    if(userIndex == -1) return false;
+    const todoIndex = db[userIndex].todos.findIndex(el => el.id = todoId);
+    if(todoIndex == -1) return false;
+
+    db[userIndex].todos.splice(todoIndex, 1);
+
+    fs.writeFileSync(DB_FILE, JSON.stringify(db, null, 2));
+    return true;
+
+}
+
+module.exports = {addUserDB, searchUserDB, removeUserDB, addTodoDB, changeTodoCheckDB, removeTodoDB};
