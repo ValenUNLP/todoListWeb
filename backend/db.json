@@ -1,7 +1,22 @@
 [
   {
-    "id": "a897d23abc63d0044f4ecaed1815d35f",
-    "username": "Valentin",
-    "password": "Banegas"
+    "id": "dfcb086c537b8caf3a6dccd0b201a60e",
+    "username": "valentin",
+    "password": "banegas",
+    "todos": [
+      "Hacer la tarea xdjaja",
+      "Hacer la tarea xdjaja",
+      "Hacer la tarea xdjaja",
+      {
+        "id": "a1d33ef6220c681780d2c8bd5e62bfb2",
+        "cheked": false
+      },
+      {
+        "id": "382b2aa01adf0e22570897a4f9e1d0e9",
+        "goal": "Hacer la tarea xdjaja",
+        "importance": 10,
+        "cheked": false
+      }
+    ]
   }
 ]

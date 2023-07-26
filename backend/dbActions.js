@@ -23,5 +23,12 @@ const removeUserDB = (id) =>{
     return true;
 }
 
+const addTodoDB = (userId, todo) => {
+    let db = JSON.parse(fs.readFileSync(DB_FILE));
+    const userIndex = db.findIndex(el => el.id ==  userId);
+    db[userIndex].todos.push(todo);
+    fs.writeFileSync(DB_FILE, JSON.stringify(db, null, 2));
+}
 
-module.exports = {addUserDB, searchUserDB, removeUserDB};
+
+module.exports = {addUserDB, searchUserDB, removeUserDB, addTodoDB};

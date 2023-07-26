@@ -1,5 +1,6 @@
 const express = require("express");
 const userRouter = require("./router/userRouter");
+const todoRouter = require("./router/todoRouter");
 const cors = require("cors");
 const app = express();
 const PORT = 3000;
@@ -7,7 +8,8 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
-app.use("/", userRouter);
+app.use("/user", userRouter);
+app.use("/todo", todoRouter);
 
 app.listen(PORT, ()=>{
     console.log(`Servidor iniciado en la ruta ${PORT}`);

@@ -23,7 +23,8 @@ const addUser = (username, password)=> {
     let newUser = {
         id: generateId(),
         username,
-        password
+        password,
+        todos: []
     }
 
     addUserDB(newUser);

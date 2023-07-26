@@ -3,8 +3,8 @@ const {registerUser, deleteUser} = require("../controllers/userController");
 
 const router = express.Router();
 
-router.post("/user", registerUser);
+router.post("/", registerUser);
 
-router.delete("/user/:id", deleteUser);
+router.delete("/:id", deleteUser);
 
 module.exports = router;
