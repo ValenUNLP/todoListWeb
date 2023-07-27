@@ -21,6 +21,7 @@ const USER_OR_TODO_NOT_FOUND_ERROR = {
 */
 
 const addTodo = (userId, todo) =>{
+
     const newTodo = {
         id: generateId(),
         goal: todo.goal,

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const DB_FILE = "./db.json";
 const {addUserDB, searchUserDB, removeUserDB} = require("../dbActions");
+const jwt = require("jsonwebtoken");
 const {generateId, clientData} = require("../util");
 
 const REGISTERED_USER_ERROR = {
@@ -11,6 +12,11 @@ const REGISTERED_USER_ERROR = {
 const REMOVE_USER_ERROR = {
     error:true,
     message: "User not found"
+}
+
+const NO_REGISTERED_USER_ERROR = {
+    error: true,
+    message: "User no registered"
 }
 
 const addUser = (username, password, name)=> {
@@ -40,6 +46,19 @@ const removeUser = (id) =>{
     return removed;
 }
 
+const loginUser = (username, password) =>{
+    const user = searchUserDB(username, password);
+    if(user == undefined) return NO_REGISTERED_USER_ERROR; 
+
+    const token = jwt.sign({ user }, "valen", { expiresIn: "10hs" });
+
+    return {
+        ...clientData(user),
+        token
+    };
+
+}
 
 
-module.exports = {addUser, removeUser};
+
+module.exports = {addUser, removeUser, loginUser};

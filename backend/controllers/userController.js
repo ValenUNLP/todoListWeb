@@ -1,4 +1,4 @@
-const { addUser, removeUser} = require("../services/userServices");
+const { addUser, removeUser, loginUser} = require("../services/userServices");
 
 const registerUser = (req, res) =>{
     const name = req.body.name;
@@ -27,4 +27,17 @@ const deleteUser = (req, res) => {
     }
 }
 
-module.exports = {registerUser, deleteUser};
+const login = (req, res) =>{
+    const username = req.body.username;
+    const password = req.body.password;
+
+    const loged = loginUser(username, password);
+
+    if(loged.error){
+        res.status(401).send(loged.message);
+    }else{
+        res.status(200).send(loged);
+    }
+}
+
+module.exports = {registerUser, deleteUser, login};

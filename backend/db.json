@@ -1,29 +1,22 @@
 [
   {
-    "id": "dfcb086c537b8caf3a6dccd0b201a60e",
-    "username": "valentin",
-    "password": "banegas",
+    "id": "cc8772271e630ea41d4e5ce2ef779c57",
+    "name": "valentin",
+    "username": "ValenKkK",
+    "password": "Banegas1234",
     "todos": [
-      "Hacer la tarea xdjaja",
-      "Hacer la tarea xdjaja",
-      "Hacer la tarea xdjaja",
       {
-        "id": "a1d33ef6220c681780d2c8bd5e62bfb2",
+        "id": "d017ceb430f645695a1f068fa29cc6b3",
+        "goal": "Valen sos un crack",
+        "importance": 10,
         "cheked": false
       },
       {
-        "id": "382b2aa01adf0e22570897a4f9e1d0e9",
-        "goal": "Hacer la tarea xdjaja",
+        "id": "11c0f9b84420f0ffacd065a9f302e2bd",
+        "goal": "Valen sos un crack",
         "importance": 10,
         "cheked": false
       }
     ]
-  },
-  {
-    "id": "0722d8a595af07a62d2eca76ecb7779e",
-    "name": "Valentin",
-    "username": "ValenGG",
-    "password": "Banegas1234",
-    "todos": []
   }
 ]
