@@ -1,5 +1,4 @@
 const fs = require("fs");
-const DB_FILE = "./db.json";
 const {removeUserDB} = require("../dbActions");
 
 

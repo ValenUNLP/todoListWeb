@@ -7,12 +7,11 @@ const addUserDB = (user) =>{
     fs.writeFileSync(DB_FILE, JSON.stringify(db, null, 2));
 }
 
-const searchUserDB = (username, password) =>{
+const searchUserDB = (username) =>{
     let db = JSON.parse(fs.readFileSync(DB_FILE));
-    return db.find(el => el.username ==  username && el.password == password);
+    return db.find(el => el.username ==  username );
 
 }
-
 
 const removeUserDB = (id) =>{
     let db = JSON.parse(fs.readFileSync(DB_FILE));

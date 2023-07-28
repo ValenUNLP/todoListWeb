@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+const fs = require("fs");
+const DB_FILE = "./db.json";
 
 const {addUserDB, searchUserDB} = require("../dbActions");
 const {generateId, clientData} = require("../util");
@@ -17,7 +19,7 @@ const login = (username, password) =>{
     const user = searchUserDB(username, password);
     if(user == undefined) return NO_REGISTERED_USER_ERROR; 
 
-    const token = jwt.sign({ user }, "valen", { expiresIn: "10hs" });
+    const token = jwt.sign({ user }, "valen", { expiresIn: "20s" });
 
     return {
         ...clientData(user),
@@ -31,7 +33,7 @@ const addUser = (username, password, name)=> {
         fs.writeFileSync(DB_FILE, JSON.stringify([]));
     }
 
-    if(searchUserDB(username, password) !== undefined) return REGISTERED_USER_ERROR; 
+    if(searchUserDB(username) !== undefined) return REGISTERED_USER_ERROR; 
 
     let newUser = {
         id: generateId(),

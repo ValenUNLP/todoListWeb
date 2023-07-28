@@ -1,20 +1,14 @@
 [
   {
-    "id": "cc8772271e630ea41d4e5ce2ef779c57",
+    "id": "07abcbd0a976ef48517d6b99282c5ea6",
     "name": "valentin",
     "username": "ValenKkK",
     "password": "Banegas1234",
     "todos": [
       {
-        "id": "d017ceb430f645695a1f068fa29cc6b3",
-        "goal": "Valen sos un crack",
-        "importance": 10,
-        "cheked": false
-      },
-      {
-        "id": "11c0f9b84420f0ffacd065a9f302e2bd",
-        "goal": "Valen sos un crack",
-        "importance": 10,
+        "id": "08af3ed415c21f3149a760eb29d94d38",
+        "goal": "Tener esto en la db",
+        "importance": 7,
         "cheked": false
       }
     ]
