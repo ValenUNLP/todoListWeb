@@ -1,7 +1,10 @@
-const fs = require("fs");
-const {removeUserDB} = require("../dbActions");
 
+const {removeUserDB, searchUserDB} = require("../dbActions");
 
+const NO_REGISTERED_USER_ERROR = {
+    error: true,
+    message: "User no registered"
+}
 
 const REMOVE_USER_ERROR = {
     error:true,
@@ -18,7 +21,14 @@ const removeUser = (id) =>{
     return removed;
 }
 
+const searchUser = (username) =>{
+    let finded = searchUserDB(username);
+
+    if(!finded) return NO_REGISTERED_USER_ERROR;
+
+    let {name, todos} = finded;
+    return {name, todos};
+}
 
 
-
-module.exports = {removeUser};
+module.exports = {removeUser, searchUser};

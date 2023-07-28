@@ -1,4 +1,4 @@
-const {removeUser} = require("../services/userServices");
+const {removeUser, searchUser} = require("../services/userServices");
 
 
 const deleteUser = (req, res) => {
@@ -13,5 +13,17 @@ const deleteUser = (req, res) => {
     }
 }
 
+const getUser = (req, res) => {
+    const username = req.params.username;
 
-module.exports = {deleteUser};
+    const finded = searchUser(username);
+
+    if(finded.error){
+        res.status(404).send(finded.error);
+    }{
+        res.status(200).send(finded);
+    }
+}
+
+
+module.exports = {deleteUser, getUser};

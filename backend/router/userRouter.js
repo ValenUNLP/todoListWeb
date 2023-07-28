@@ -1,10 +1,12 @@
 const express = require("express");
-const {deleteUser} = require("../controllers/userController");
+const {deleteUser, getUser} = require("../controllers/userController");
 const { authenticateJWT } = require("../middleware");
 
 const router = express.Router();
 
 router.delete("/:id",authenticateJWT ,deleteUser);
+
+router.get("/:username", getUser);
 
 
 module.exports = router;

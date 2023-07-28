@@ -10,7 +10,6 @@ const addUserDB = (user) =>{
 const searchUserDB = (username) =>{
     let db = JSON.parse(fs.readFileSync(DB_FILE));
     return db.find(el => el.username ==  username );
-
 }
 
 const removeUserDB = (id) =>{
