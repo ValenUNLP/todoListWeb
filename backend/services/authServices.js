@@ -20,7 +20,6 @@ const login = (username, password) =>{
     if(user == undefined) return NO_REGISTERED_USER_ERROR; 
 
     const token = jwt.sign({ user }, "valen", { expiresIn: "20s" });
-
     return {
         ...clientData(user),
         token

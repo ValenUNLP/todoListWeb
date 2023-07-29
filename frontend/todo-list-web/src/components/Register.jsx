@@ -35,7 +35,7 @@ function Register(){
             return;
         }
 
-        if(name.length <= 8 || name.length >= 18){
+        if(password.length <= 8 || password.length >= 18){
             seterror("La contraseña tiene que tener mas de 8 caracteres y menos de 18 caracteres");
             return;
         }
