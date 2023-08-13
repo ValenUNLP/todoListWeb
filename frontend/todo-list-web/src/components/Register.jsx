@@ -1,6 +1,6 @@
 import "./Register.css"
 import React, { useState } from 'react';
-function Register(){
+function Register({setrender, setloginMessage}){
 
     const [userData, setuserData] = useState({
         name: "",
@@ -52,7 +52,10 @@ function Register(){
             }
             return response.json()
         })
-        .then((data) => console.log(data))
+        .then((data) => {
+            setrender(false)
+            setloginMessage("¡Usuario registrado con exito! inicie sesion para empezar a disfrutar el seguimiento de sus objetivos")
+        })
         .catch(error => {
             seterror(error.message)
         })
